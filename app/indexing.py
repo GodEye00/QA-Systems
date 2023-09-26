@@ -2,7 +2,10 @@ from elasticsearch import Elasticsearch, helpers
 import pandas as pd
 
 # Connecting to elasticsearch
-es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
+es = Elasticsearch(
+  "https://2231c2d310594075954cdcba0566089b.us-central1.gcp.cloud.es.io:443",
+  api_key="VTBvSzBvb0J5MXhjdGpHeVJDWUU6eXVsazVuSGlSaE9qOFNHTEZmb2dNdw=="
+)
 
 # Defining the index for the mapping
 mapping = {
@@ -16,8 +19,8 @@ mapping = {
 }
 
 # creating the index for the search
-index = "passage_index"
-es.indices.create(index, body=mapping)
+# index = "passage_index"
+# es.indices.create(index, body=mapping)
 
 # Loading the passage_metadata_emb.csv file
 df = pd.read_csv('../docs/passage_metadata_emb.csv')
