@@ -4,10 +4,16 @@ import pandas as pd
 import numpy as np 
 
 # connecting to elasticsearch
-es = Elasticsearch([{'host': 'localhost', 'port':9200}])
+es = Elasticsearch(
+  "https://2231c2d310594075954cdcba0566089b.us-central1.gcp.cloud.es.io:443",
+  api_key="VTBvSzBvb0J5MXhjdGpHeVJDWUU6eXVsazVuSGlSaE9qOFNHTEZmb2dNdw==",
+  use_ssl=True,  
+  verify_certs=True,
+  timeout=30
+)
 
 # Load the SentenceTransformer model 
-model = SentenceTransformer('')
+model = SentenceTransformer('all-mpnet-base-v2')
 
 # Load the user queries 
 user_queries = [
@@ -40,9 +46,18 @@ for query in user_queries:
                     "params": {"queryVector": query_embedding}
                 }
             }
-        }
+        },
+        "sort": [
+            {
+                "_score": {
+                    "order": "desc"
+                }
+            }
+        ],
+        "_source": False,  # Disable returning the source, only return the matching documents
+        "size": size  # Set the size to retrieve
     }
-    response = es.search(index, body, size)
+    response = es.search(index, body)
     
     # Getting the needed passages and metadata from the search response
     needed_passages = []

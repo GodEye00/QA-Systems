@@ -4,7 +4,10 @@ import pandas as pd
 # Connecting to elasticsearch
 es = Elasticsearch(
   "https://2231c2d310594075954cdcba0566089b.us-central1.gcp.cloud.es.io:443",
-  api_key="VTBvSzBvb0J5MXhjdGpHeVJDWUU6eXVsazVuSGlSaE9qOFNHTEZmb2dNdw=="
+  api_key="VTBvSzBvb0J5MXhjdGpHeVJDWUU6eXVsazVuSGlSaE9qOFNHTEZmb2dNdw==",
+  use_ssl=True,  
+  verify_certs=True,
+  timeout=30
 )
 
 # Defining the index for the mapping
