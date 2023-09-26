@@ -7,8 +7,8 @@ import json
 import csv 
 
 # Specifying the file path to write and retrieve data to and fro respectively
-corpus = "Corpus"
-output_csv_path = "docs/passage_metadata.csv"
+corpus = "../Corpus"
+output_csv_path = "../docs/passage_metadata.csv"
 
 # Creating an list that will store all retrieved passages and their metadata pairs
 passage_metadata_pairs = []
@@ -25,7 +25,7 @@ for filename in os.listdir(corpus):
         
         # And then reading the technical details 
         with open(technical_path, 'r') as technical_file:
-            technical = json.load(technical_file)
+            technical = technical_file.read()
             
             # splitting into paragraphs
             paragraphs = technical.split('__paragraph__')
@@ -36,9 +36,9 @@ for filename in os.listdir(corpus):
                 chunk = " ".join(paragraphs[i:i+chunk_size])
                 passage_metadata_pairs.append({"Passage": chunk, "Metadata": metadata})
                 
-with open(output_csv_path, 'w', newline='', encoding='utf-8') as csv_file:
+with open(output_csv_path, 'a', newline='', encoding='utf-8') as csv_file:
     fieldnames = ['Passage', 'Metadata']
     writer = csv.DictWriter(csv_file, fieldnames)
     writer.writeheader()
     for pair in passage_metadata_pairs:
-        writer.write(pair)
+        writer.writerow(pair)
