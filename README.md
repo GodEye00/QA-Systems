@@ -73,3 +73,32 @@ flask run
 
 3. Access the flask endpoint at `http://localhost:5000`.
 
+
+## Running the Docker Container
+
+To run the Question and Answers Assistant using Docker, follow these steps:
+
+1. **Build the Docker Image**:
+
+  
+
+   ```
+   docker build --no-cache -t flask_app .
+   ```
+
+   This command will use the `Dockerfile` to build an image named `qa_system`.
+
+2. **Run the Docker Container**:
+
+   Once the image is built, you can run a Docker container using the following command:
+
+   ```
+   docker run -p 5000:5000 qa_system
+   ```
+3. **Access the Application**:
+
+  You can access the application `http://localhost:5000`
+
+Please note that this Docker container assumes that the necessary Python packages and dependencies are listed in the `requirements.txt` file, and they will be installed during the build process.
+
+For a detailed technical explanation of the design choices made for each task, please refer to the [Technical Design Document](technical_design.pdf).
