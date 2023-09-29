@@ -26,10 +26,10 @@ Before running the project, ensure you have the following dependencies installed
 
 ### Installation
 
-1. Clone the repository:
+1. Clone the repository from the master branch:
 
 ```bash
-git clone https://github.com/GodEye00/QA-Systems.git
+git clone https://github.com/GodEye00/QA-Systems.git master
 ```
 2. cd into the qa_system directory
 3. Install the required Python packages:
