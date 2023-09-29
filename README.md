@@ -1,1 +1,76 @@
-# QA-Systems
+# Question and Answers System (QA System)
+
+## Overview
+
+The Question and Answers Assistant is a system designed to provide answers to user queries based on indexed documents. It utilizes Elasticsearch for document indexing and retrieval, as well as a pre-trained language model (gpt-3.5 turbo) for question answering.
+
+## Table of Contents
+
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+  - [Indexing Documents](#indexing-documents)
+  - [Running the Frontend](#running-the-frontend)
+  - [Running the Flask app](#running-the-flask-app)
+
+## Getting Started
+
+### Prerequisites
+
+Before running the project, ensure you have the following dependencies installed:
+
+- Python >= 3.6
+- Elasticsearch
+- Other Python libraries (listed in `requirements.txt`)
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/GodEye00/QA-Systems.git
+```
+2. cd into the qa_system directory
+3. Install the required Python packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+
+### Indexing Documents
+
+1. Add your documents to the `qa_system` directory.
+   
+2. Run the indexing script:
+
+```bash
+python3 indexing.py
+```
+
+### Running the Frontend
+1. cd into the app directory within the qa_system directory
+
+2. Start the Streamlit app:
+
+```bash
+streamlit run gui.py
+```
+
+3. Access the frontend in your web browser at `http://localhost:8501`.
+
+
+### Running the Flask app
+1. cd into the app directory within the qa_system directory
+2. export path FLASK_APP=flask_app/__init__
+3. start the flask app
+4. 
+```bash
+flask run
+```
+
+3. Access the flask endpoint at `http://localhost:5000`.
+
+4. 
