@@ -2,6 +2,9 @@ from flask import request, jsonify
 from elasticsearch import Elasticsearch
 from sentence_transformers import SentenceTransformer
 import numpy as np
+import ast
+import json
+
 
 from flask_app import app
 
@@ -13,7 +16,7 @@ es = Elasticsearch(
 )
 
 # Load the SentenceTransformer model
-model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
+model = SentenceTransformer('all-mpnet-base-v2')
 
 @app.route('/ask_question', methods=['POST'])
 def ask_question():
@@ -37,7 +40,7 @@ def ask_question():
                 }
             }
         }
-        response = es.search(index="passage_index", body=search_body, size=3)
+        response = es.search(index="search-qa_system_index", body=search_body, size=3)
 
         # Extract relevant passages and metadata
         relevant_passages = []
@@ -66,10 +69,10 @@ def upload_document():
         # Index the data
         document = {
             "Passage": passage,
-            "Metadata": metadata,
+            "Metadata": json.dumps(metadata, indent=4),
             "Embedding": passage_embedding
         }
-        es.index(index="passage_index", body=document)
+        es.index(index="search-qa_system_index", body=document)
 
         return jsonify({"message": "Document uploaded successfully"}), 200
 

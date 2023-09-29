@@ -30,7 +30,7 @@ for index, row in passage_metadata_df.iterrows():
     passage_metadata_emb_trio.append({
         'Passage': passage,
         'Metadata': metadata,
-        'Embedding': passage_embedding.tolist(),  # Convert to list
+        'Embedding': passage_embedding,
     })
     
     

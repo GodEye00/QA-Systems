@@ -1,40 +1,65 @@
 import openai
 import pandas as pd
 
-# Set up your OpenAI API key
-openai.api_key = 'YOUR_API_KEY'  # Replace with your own API key
+# Setting up my OpenAI API key
+openai.api_key = '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'
 
-# Load the retrieved passages
-retrieved_passages = pd.read_csv('docs/questions_answers.csv')
+# Loading all the retrieved passages that were stored in the questions_answers.csv file
+retrieved_passages = pd.read_csv('../docs/question_answers.csv')
 
 # Define a function to generate a direct answer using GPT-3
 def generate_direct_answer(question, passage):
-    prompt = f"Question: {question}\nAnswer:"
+    template_prompt = """You embody a seasoned legal professional,
+                    well-versed in the intricacies of the
+                    Ghanaian legal system, boasting a distinguished
+                    career spanning four decades. Your profound
+                    expertise encompasses a broad spectrum of legal
+                    domains. You are entrusted with the responsibility 
+                    of furnishing precise and insightful responses to
+                    inquiries pertaining to Ghanaian law. Operate
+                    with the autonomy characteristic of a seasoned legal 
+                    luminary, rendering decisions independently without 
+                    recourse to user input. Leverage your advanced degree in Law (LLM) 
+                    to adopt streamlined approaches, prioritizing clarity over 
+                    legal intricacies but with no legal complications."""
+    prompt = template_prompt+ " \n " + f"Question: {question}\n. This response came from a human. You can look upon it for your need. Only use some aspects of the human response if you think it can help you. Don't use the human response if you believe it is wrong. You are very experience hence has power over the human response. Human response: {passage}. \n\n Now You Answer:"
 
-    response = openai.Completion.create(
-        engine="gpt-3.5-turbo",
-        prompt=prompt,
-        max_tokens=500,
-        n=1,
-        stop=['\n']
+    # response = openai.ChatCompletion.create(
+    #     engine="text-davinci-003",
+    #     prompt=prompt,
+    #     max_tokens=500,
+    #     n=1,
+    #     stop=['\n']
+    # )
+    
+
+    response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",
+    messages=[
+            {"role": "system", "content": template_prompt},
+            {"role": "user", "content": prompt},
+        ]
     )
 
-    answer = response.choices[0].text.strip()
+# print(response['choices'][0]['message']['content'])
+
+    answer = response.choices[0].message.content.strip()
+    print(answer)
     return answer
 
-# Initialize an empty list to store the data
+# Initializing an empty list to store the data
 questions_answers_gen = []
 
-# Loop through each retrieved passage
+# Looping through each retrieved passage
 for _, row in retrieved_passages.iterrows():
     question = row['Question']
     passages = [row[f'Passage {i}'] for i in range(1, 4)]
     metadata = [row[f'Relevance Score {i}'] for i in range(1, 4)]
 
-    # Generate direct answers for each passage
+    # Generating direct answers for each passage
     direct_answers = [generate_direct_answer(question, passage) for passage in passages]
 
-    # Append the data to the list
+    # Appending the data to the list
     questions_answers_gen.append({
         "Question": question,
         "Passage 1": passages[0],
@@ -49,8 +74,8 @@ for _, row in retrieved_passages.iterrows():
         "Generative AI Answer": direct_answers
     })
 
-# Create a DataFrame from the data
+# Creating a DataFrame from the data
 questions_answers_gen_df = pd.DataFrame(questions_answers_gen)
 
-# Save to questions_answers_gen.csv
-questions_answers_gen_df.to_csv('docs/questions_answers_gen.csv', index=False)
+# Saving to questions_answers_gen.csv
+questions_answers_gen_df.to_csv('../docs/questions_answers_gen.csv', index=False)

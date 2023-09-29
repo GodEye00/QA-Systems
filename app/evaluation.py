@@ -7,7 +7,7 @@ from retrieval import retrievePassages
 user_queries = open('../user_queries.txt', 'r').readlines()
 user_queries = [query.strip() for query in user_queries]
 
-# retrievePassages(user_queries)
+retrievePassages(user_queries)
 
 # Load the retrieved passages (from questions_answers.csv)
 retrieved_passages = pd.read_csv('../docs/question_answers.csv')
