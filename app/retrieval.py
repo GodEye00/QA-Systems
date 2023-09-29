@@ -1,13 +1,13 @@
 from sentence_transformers import SentenceTransformer
 from elasticsearch import Elasticsearch 
 import pandas as pd
-import numpy as np
+import os
 
 # connecting to elasticsearch
 es = Elasticsearch(
-  "https://2231c2d310594075954cdcba0566089b.us-central1.gcp.cloud.es.io:443",
-  api_key="YkczVjI0b0I3eU96R3ZfYWFmUE86VGkzRzJiakhSXy1LSW5aWjd5Z0RKZw==",
-  timeout=30,
+  os.environ.get('ELASTICSEARCH_HOST'),
+  os.environ.get('ELASTICSEARCH_API_KEY'),
+  request_timeout=30,
 )
 
 # Load the SentenceTransformer model 

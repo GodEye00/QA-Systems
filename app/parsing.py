@@ -1,7 +1,3 @@
-'''
-A helper for writing and reading items from file
-'''
-
 import os 
 import json 
 import csv 

@@ -1,8 +1,9 @@
 import openai
 import pandas as pd
+import os
 
 # Setting up my OpenAI API key
-openai.api_key = ""
+openai.api_key = os.environ.get('OPEN_AI_API_KEY')
 
 # Loading all the retrieved passages that were stored in the questions_answers.csv file
 retrieved_passages = pd.read_csv('../docs/question_answers.csv')
@@ -14,7 +15,7 @@ def generate_direct_answer(question, passage):
                     Ghanaian legal system, boasting a distinguished
                     career spanning four decades. Your profound
                     expertise encompasses a broad spectrum of legal
-                    domains. You are entrusted with the responsibility 
+                    domains. You are entrusted with the responsibility
                     of furnishing precise and insightful responses to
                     inquiries pertaining to Ghanaian law. Operate
                     with the autonomy characteristic of a seasoned legal 
@@ -31,7 +32,7 @@ def generate_direct_answer(question, passage):
                                             the validity and relevance of the human-generated 
                                             content, affording you the authority to selectively 
                                             adopt or disregard aspects of it in accordance with 
-                                            your judgment. Human response: {passage}. \n\n Now Your Answer:"""
+                                            your judgment. Human response: {passage}. \n Question: {question} \n\n Now Your Answer:"""
     response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
     messages=[

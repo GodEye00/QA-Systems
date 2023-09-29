@@ -1,12 +1,13 @@
 from elasticsearch import Elasticsearch, helpers
 import pandas as pd
 import ast
+import os
 
 
 # Connecting to elasticsearch
 es = Elasticsearch(
-  "https://2231c2d310594075954cdcba0566089b.us-central1.gcp.cloud.es.io:443",
-  api_key="YkczVjI0b0I3eU96R3ZfYWFmUE86VGkzRzJiakhSXy1LSW5aWjd5Z0RKZw==",
+  os.environ.get('ELASTICSEARCH_HOST'),
+  os.environ.get('ELASTICSEARCH_API_KEY'),
   request_timeout=30,
 )
 
