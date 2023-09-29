@@ -62,7 +62,7 @@ streamlit run gui.py
 3. Access the frontend in your web browser at `http://localhost:8501`.
 
 
-### Running the Flask app
+### Running the Flask App
 1. cd into the app directory within the qa_system directory
 2. export path FLASK_APP=flask_app/__init__
 3. start the flask app
@@ -73,4 +73,3 @@ flask run
 
 3. Access the flask endpoint at `http://localhost:5000`.
 
-4. 
