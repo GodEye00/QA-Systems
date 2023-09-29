@@ -101,4 +101,4 @@ To run the Question and Answers Assistant using Docker, follow these steps:
 
 Please note that this Docker container assumes that the necessary Python packages and dependencies are listed in the `requirements.txt` file, and they will be installed during the build process.
 
-For a detailed technical explanation of the design choices made for each task, please refer to the [Technical Design Document](technical_design.pdf).
+For a detailed technical explanation of the design choices made for each task, please refer to the [Technical Design Document](https://github.com/GodEye00/QA-Systems/blob/master/docs/technical.pdf).
