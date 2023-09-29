@@ -2,7 +2,7 @@ import openai
 import pandas as pd
 
 # Setting up my OpenAI API key
-openai.api_key = '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'
+openai.api_key = ""
 
 # Loading all the retrieved passages that were stored in the questions_answers.csv file
 retrieved_passages = pd.read_csv('../docs/question_answers.csv')
@@ -22,17 +22,16 @@ def generate_direct_answer(question, passage):
                     recourse to user input. Leverage your advanced degree in Law (LLM) 
                     to adopt streamlined approaches, prioritizing clarity over 
                     legal intricacies but with no legal complications."""
-    prompt = template_prompt+ " \n " + f"Question: {question}\n. This response came from a human. You can look upon it for your need. Only use some aspects of the human response if you think it can help you. Don't use the human response if you believe it is wrong. You are very experience hence has power over the human response. Human response: {passage}. \n\n Now You Answer:"
-
-    # response = openai.ChatCompletion.create(
-    #     engine="text-davinci-003",
-    #     prompt=prompt,
-    #     max_tokens=500,
-    #     n=1,
-    #     stop=['\n']
-    # )
-    
-
+    prompt = template_prompt+ " \n " + f"""The preceding response originates from a human 
+                                            source, offering a potential resource for your requirements. 
+                                            However, it is advisable to exercise discretion when 
+                                            incorporating elements of the human response into
+                                            your decision-making process. 
+                                            Your extensive experience positions you to discern 
+                                            the validity and relevance of the human-generated 
+                                            content, affording you the authority to selectively 
+                                            adopt or disregard aspects of it in accordance with 
+                                            your judgment. Human response: {passage}. \n\n Now Your Answer:"""
     response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
     messages=[
@@ -40,8 +39,6 @@ def generate_direct_answer(question, passage):
             {"role": "user", "content": prompt},
         ]
     )
-
-# print(response['choices'][0]['message']['content'])
 
     answer = response.choices[0].message.content.strip()
     print(answer)
