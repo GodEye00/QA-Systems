@@ -39,6 +39,12 @@ git clone https://github.com/GodEye00/QA-Systems.git master
 ```bash
 pip install -r requirements.txt
 ```
+5. Run exports
+   ```bash
+   export ELASTICSEARCH_HOST=<your-host-elastic-search-url>
+   export ELASTICSEARCH_API_KEY=<your-host-elastic-search-api-key>
+   export OPENAI_API_KEY=<your-openai-api-key>
+   ```
 
 ## Usage
 
