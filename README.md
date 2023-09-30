@@ -65,8 +65,11 @@ streamlit run gui.py
 
 ### Running the Flask App
 1. cd into the app directory within the qa_system directory
-2. export path FLASK_APP=flask_app/__init__
-3. start the flask app
+2. export path
+   ```bash
+   export FLASK_APP=flask_app/__init__
+   ```
+4. start the flask app
 ```bash
 flask run
 ```
