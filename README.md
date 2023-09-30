@@ -33,12 +33,14 @@ Before running the project, ensure you have the following dependencies installed
 ```bash
 git clone https://github.com/GodEye00/QA-Systems.git master
 ```
+
 2. cd into the QA-Systems directory
 3. Install the required Python packages:
 
 ```bash
 pip install -r requirements.txt
 ```
+
 5. Run exports
    ```bash
    export ELASTICSEARCH_HOST=<your-host-elastic-search-url>
@@ -51,12 +53,14 @@ pip install -r requirements.txt
 ### Indexing Documents
 
 1. Add your documents to the `QA-Systems` directory.
+
    ```bash
    cd QA-Systems
    cd app
   ```
    
 2. Run the indexing script:
+
 
 ```bash
 python3 indexing.py
@@ -66,49 +70,62 @@ python3 indexing.py
 ### Retrieving Documents
 
 1. Add your documents to the `QA-Systems` directory.
+   
    ```bash
    cd QA-Systems
    cd app
   ```
-   
+
+
 2. Run the retrieval script:
+
 
 ```bash
 python3 retrieval.py
 ```
 
+
 ### Running the Frontend
 1. cd into the app directory within the QA-Systems directory
+   
    ```bash
    cd QA-Systems
    cd app
   ```
 
+
 2. Start the Streamlit app:
+
 
 ```bash
 streamlit run gui.py
 ```
+
 
 3. Access the frontend in your web browser at `http://<your-api-address>:8501`.
 
 
 ### Running the Flask App
 1. cd into the app directory within the QA-Systems directory
+   
    ```bash
    cd QA-Systems
    cd app
   ```
+
 3. export path
    ```bash
    export FLASK_APP=flask_app/__init__
    ```
+
 4. start the flask app
+   
 ```bash
 flask run
 ```
 
-3. Access the flask endpoint at `http://localhost:5000`.
+
+5. Access the flask endpoint at `http://localhost:5000`.
 
 
 ## Running the Docker Container
@@ -116,18 +133,20 @@ flask run
 To run the Question and Answers Assistant using Docker, follow these steps:
 
 1. **Enter the docker directory**:
+   
    ```bash
    cd QA-Systems
    cd docker
   ```
 
+
 2. **Build the Docker Image**:
+
 
    ```
    docker build --no-cache -t flask_app .
    ```
 
-   This command will use the `Dockerfile` to build an image named `QA-Systems`.
 
 3. **Run the Docker Container**:
 
@@ -136,6 +155,7 @@ To run the Question and Answers Assistant using Docker, follow these steps:
    ```
    docker run -p 5000:5000 QA-Systems
    ```
+
 4. **Access the Application**:
 
   You can access the application `http://localhost:5000`
