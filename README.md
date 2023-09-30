@@ -57,7 +57,7 @@ pip install -r requirements.txt
    ```bash
    cd QA-Systems
    cd app
-  ```
+   ```
    
 2. Run the indexing script:
 
@@ -74,7 +74,7 @@ python3 indexing.py
    ```bash
    cd QA-Systems
    cd app
-  ```
+   ```
 
 
 2. Run the retrieval script:
@@ -91,7 +91,7 @@ python3 retrieval.py
    ```bash
    cd QA-Systems
    cd app
-  ```
+   ```
 
 
 2. Start the Streamlit app:
@@ -111,7 +111,7 @@ streamlit run gui.py
    ```bash
    cd QA-Systems
    cd app
-  ```
+   ```
 
 3. export path
    ```bash
@@ -122,7 +122,7 @@ streamlit run gui.py
    
 ```bash
 flask run
-```
+   ```
 
 
 5. Access the flask endpoint at `http://localhost:5000`.
@@ -137,7 +137,7 @@ To run the Question and Answers Assistant using Docker, follow these steps:
    ```bash
    cd QA-Systems
    cd docker
-  ```
+   ```
 
 
 2. **Build the Docker Image**:
