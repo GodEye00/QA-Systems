@@ -1,5 +1,3 @@
-Here is the corrected README:
-
 ---
 
 # Question and Answers System (QA System)
