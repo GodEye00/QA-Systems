@@ -154,5 +154,3 @@ Please note that this Docker container assumes that the necessary Python package
 For a detailed technical explanation of the design choices made for each task, please refer to the [Technical Design Document](https://github.com/GodEye00/QA-Systems/blob/master/docs/technical.pdf).
 
 --- 
-
-I've corrected the formatting, typos, and some minor language issues. Make sure to replace placeholders like `<your-host-elasticsearch-url>` and `<your-openai-api-key>` with your actual values.
