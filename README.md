@@ -11,7 +11,7 @@ The Question and Answers Assistant is a system designed to provide answers to us
   - [Installation](#installation)
 - [Usage](#usage)
   - [Indexing Documents](#indexing-documents)
-  - - [Retrieving Documents](#retrieving-documents)
+  - [Retrieving Documents](#retrieving-documents)
   - [Running the Frontend](#running-the-frontend)
   - [Running the Flask app](#running-the-flask-app)
   - [Running the Docker Container](#running-the-docker-container)
