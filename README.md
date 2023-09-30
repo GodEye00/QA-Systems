@@ -51,6 +51,10 @@ pip install -r requirements.txt
 ### Indexing Documents
 
 1. Add your documents to the `QA-Systems` directory.
+   ```bash
+   cd QA-Systems
+   cd app
+  ```
    
 2. Run the indexing script:
 
@@ -62,6 +66,10 @@ python3 indexing.py
 ### Retrieving Documents
 
 1. Add your documents to the `QA-Systems` directory.
+   ```bash
+   cd QA-Systems
+   cd app
+  ```
    
 2. Run the retrieval script:
 
@@ -71,6 +79,10 @@ python3 retrieval.py
 
 ### Running the Frontend
 1. cd into the app directory within the QA-Systems directory
+   ```bash
+   cd QA-Systems
+   cd app
+  ```
 
 2. Start the Streamlit app:
 
@@ -78,12 +90,16 @@ python3 retrieval.py
 streamlit run gui.py
 ```
 
-3. Access the frontend in your web browser at `http://localhost:8501`.
+3. Access the frontend in your web browser at `http://<your-api-address>:8501`.
 
 
 ### Running the Flask App
 1. cd into the app directory within the QA-Systems directory
-2. export path
+   ```bash
+   cd QA-Systems
+   cd app
+  ```
+3. export path
    ```bash
    export FLASK_APP=flask_app/__init__
    ```
@@ -99,9 +115,13 @@ flask run
 
 To run the Question and Answers Assistant using Docker, follow these steps:
 
-1. **Build the Docker Image**:
+1. **Enter the docker directory**:
+   ```bash
+   cd QA-Systems
+   cd docker
+  ```
 
-  
+2. **Build the Docker Image**:
 
    ```
    docker build --no-cache -t flask_app .
@@ -109,14 +129,14 @@ To run the Question and Answers Assistant using Docker, follow these steps:
 
    This command will use the `Dockerfile` to build an image named `QA-Systems`.
 
-2. **Run the Docker Container**:
+3. **Run the Docker Container**:
 
    Once the image is built, you can run a Docker container using the following command:
 
    ```
    docker run -p 5000:5000 QA-Systems
    ```
-3. **Access the Application**:
+4. **Access the Application**:
 
   You can access the application `http://localhost:5000`
 
