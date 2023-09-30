@@ -71,7 +71,8 @@ def main():
 
         # Optionally, display generative AI answer
         st.header("Generative AI Answer:")
-        st.write(generate_direct_answer(user_question))
+        ai_response = generate_direct_answer(user_question)
+        st.write(ai_response)
 
 if __name__ == "__main__":
     main()

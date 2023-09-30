@@ -2,14 +2,8 @@ import openai
 import pandas as pd
 import os
 
-# Setting up my OpenAI API key
-openai.api_key = os.environ.get('OPENAI_API_KEY')
-
-# Loading all the retrieved passages that were stored in the questions_answers.csv file
-retrieved_passages = pd.read_csv('../docs/question_answers.csv')
-
 # Define a function to generate a direct answer using GPT-3
-def generate_direct_answer(question, passage):
+def generate_direct_answer(question):
     template_prompt = """You embody a seasoned legal professional,
                     well-versed in the intricacies of the
                     Ghanaian legal system, boasting a distinguished
@@ -36,35 +30,44 @@ def generate_direct_answer(question, passage):
     print(answer)
     return answer
 
-# Initializing an empty list to store the data
-questions_answers_gen = []
 
-# Looping through each retrieved passage
-for _, row in retrieved_passages.iterrows():
-    question = row['Question']
-    passages = [row[f'Passage {i}'] for i in range(1, 4)]
-    metadata = [row[f'Relevance Score {i}'] for i in range(1, 4)]
+if __name__ == "__main__":
 
-    # Generating direct answers for each passage
-    direct_answers = [generate_direct_answer(question, passage) for passage in passages]
+    # Setting up my OpenAI API key
+    openai.api_key = os.environ.get('OPENAI_API_KEY')
 
-    # Appending the data to the list
-    questions_answers_gen.append({
-        "Question": question,
-        "Passage 1": passages[0],
-        "Relevance Score 1": metadata[0],
-        "Passage 1 Metadata": row['Passage 1 Metadata'],
-        "Passage 2": passages[1],
-        "Relevance Score 2": metadata[1],
-        "Passage 2 Metadata": row['Passage 2 Metadata'],
-        "Passage 3": passages[2],
-        "Relevance Score 3": metadata[2],
-        "Passage 3 Metadata": row['Passage 3 Metadata'],
-        "Generative AI Answer": direct_answers
-    })
+    # Loading all the retrieved passages that were stored in the questions_answers.csv file
+    retrieved_passages = pd.read_csv('../docs/question_answers.csv')
 
-# Creating a DataFrame from the data
-questions_answers_gen_df = pd.DataFrame(questions_answers_gen)
+    # Initializing an empty list to store the data
+    questions_answers_gen = []
 
-# Saving to questions_answers_gen.csv
-questions_answers_gen_df.to_csv('../docs/questions_answers_gen.csv', index=False)
+    # Looping through each retrieved passage
+    for _, row in retrieved_passages.iterrows():
+        question = row['Question']
+        passages = [row[f'Passage {i}'] for i in range(1, 4)]
+        metadata = [row[f'Relevance Score {i}'] for i in range(1, 4)]
+
+        # Generating direct answers for each passage
+        direct_answers = generate_direct_answer(question)
+
+        # Appending the data to the list
+        questions_answers_gen.append({
+            "Question": question,
+            "Passage 1": passages[0],
+            "Relevance Score 1": metadata[0],
+            "Passage 1 Metadata": row['Passage 1 Metadata'],
+            "Passage 2": passages[1],
+            "Relevance Score 2": metadata[1],
+            "Passage 2 Metadata": row['Passage 2 Metadata'],
+            "Passage 3": passages[2],
+            "Relevance Score 3": metadata[2],
+            "Passage 3 Metadata": row['Passage 3 Metadata'],
+            "Generative AI Answer": direct_answers
+        })
+
+    # Creating a DataFrame from the data
+    questions_answers_gen_df = pd.DataFrame(questions_answers_gen)
+
+    # Saving to questions_answers_gen.csv
+    questions_answers_gen_df.to_csv('../docs/questions_answers_gen.csv', index=False)

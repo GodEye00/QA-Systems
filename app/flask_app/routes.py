@@ -9,7 +9,7 @@ from jsonschema import validate
 from flask_app import app
 
 # Added for logging
-logging.basicConfig(filename='./app.log', level=logging.INFO)
+logging.basicConfig(filename='app.log', level=logging.INFO)
 
 # Connecting to the ElasticSearch instance
 es = Elasticsearch(
@@ -47,6 +47,7 @@ def handleUserQuestion(question):
         metadata = hit['_source']['Metadata']
         relevance_score = hit['_score']
         relevant_passages.append({"passage": passage, "metadata": metadata, "relevance_score": relevance_score})
+    print(relevant_passages)
     return relevant_passages
 
 def handleUploadDocument(passage, metadata):
