@@ -96,7 +96,6 @@ def retrievePassages(user_queries):
 
 
 def main():
-    print("This is the main function in my_function.py")
     retrievePassages(user_queries)
 
 if __name__ == "__main__":

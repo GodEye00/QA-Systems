@@ -7,7 +7,6 @@ model = SentenceTransformer('all-mpnet-base-v2')
 
 # Check the embedding dimension of the model
 embedding_dim = model.get_sentence_embedding_dimension()
-print(f"The embedding dimension of the model is: {embedding_dim}")
 
 # Loading the passage_metadata.csv file
 passage_metadata_df = pd.read_csv('../docs/passage_metadata.csv')

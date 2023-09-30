@@ -3,7 +3,7 @@ import pandas as pd
 import os
 
 # Setting up my OpenAI API key
-openai.api_key = os.environ.get('OPEN_AI_API_KEY')
+openai.api_key = os.environ.get('OPENAI_API_KEY')
 
 # Loading all the retrieved passages that were stored in the questions_answers.csv file
 retrieved_passages = pd.read_csv('../docs/question_answers.csv')
@@ -23,16 +23,7 @@ def generate_direct_answer(question, passage):
                     recourse to user input. Leverage your advanced degree in Law (LLM) 
                     to adopt streamlined approaches, prioritizing clarity over 
                     legal intricacies but with no legal complications."""
-    prompt = template_prompt+ " \n " + f"""The preceding response originates from a human 
-                                            source, offering a potential resource for your requirements. 
-                                            However, it is advisable to exercise discretion when 
-                                            incorporating elements of the human response into
-                                            your decision-making process. 
-                                            Your extensive experience positions you to discern 
-                                            the validity and relevance of the human-generated 
-                                            content, affording you the authority to selectively 
-                                            adopt or disregard aspects of it in accordance with 
-                                            your judgment. Human response: {passage}. \n Question: {question} \n\n Now Your Answer:"""
+    prompt = template_prompt+ " \n " + f"QUESTION: {question} \n\n YOUR ANSWER:"
     response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
     messages=[

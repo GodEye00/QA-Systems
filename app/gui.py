@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 from flask_app.routes import handleUploadDocument, handleUserQuestion
-# from gen_ai import generate_direct_answer
+from gen_ai import generate_direct_answer
 
 # Defining Streamlit app
 def main():
@@ -50,8 +50,10 @@ def main():
 
         if st.button("Send"):
             try:
+                st.write("Sending...")
                 handleUploadDocument(passage, metadata)
-                st.write("Uploading Document was successful")
+                with st.empty():
+                    st.write("Uploading Document was successful")
             except Exception as e:
                 st.write("Error uploading file")
 
@@ -63,14 +65,13 @@ def main():
         results = handleUserQuestion(user_question)
         st.header("Relevant Passages:")
         for index, item in enumerate(results):
-            print(item)
             st.subheader(f"Passage {index+1}")
             st.write(item['passage'])
             st.write("Relevance Score: " + str(item['relevance_score']))       
 
         # Optionally, display generative AI answer
         st.header("Generative AI Answer:")
-        # st.write(generate_direct_answer(user_question))
+        st.write(generate_direct_answer(user_question))
 
 if __name__ == "__main__":
     main()
