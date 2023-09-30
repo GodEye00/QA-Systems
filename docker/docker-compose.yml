@@ -6,5 +6,6 @@ services:
     ports:
       - "5000:5000"
     environment:
-      - ELASTICSEARCH_HOST=<elasticsearch_host>
-      - ELASTICSEARCH_API_KEY=<elasticsearch_api_key>
+      - ELASTICSEARCH_HOST=<your-elasticsearch-url>
+      - ELASTICSEARCH_API_KEY=<your-elasticsearch-api-key>
+      - OPENAI_API_KEY=<your-openai-api-key>
