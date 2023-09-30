@@ -11,6 +11,7 @@ The Question and Answers Assistant is a system designed to provide answers to us
   - [Installation](#installation)
 - [Usage](#usage)
   - [Indexing Documents](#indexing-documents)
+  - - [Retrieving Documents](#retrieving-documents)
   - [Running the Frontend](#running-the-frontend)
   - [Running the Flask app](#running-the-flask-app)
   - [Running the Docker Container](#running-the-docker-container)
@@ -32,7 +33,7 @@ Before running the project, ensure you have the following dependencies installed
 ```bash
 git clone https://github.com/GodEye00/QA-Systems.git master
 ```
-2. cd into the qa_system directory
+2. cd into the QA-Systems directory
 3. Install the required Python packages:
 
 ```bash
@@ -43,7 +44,7 @@ pip install -r requirements.txt
 
 ### Indexing Documents
 
-1. Add your documents to the `qa_system` directory.
+1. Add your documents to the `QA-Systems` directory.
    
 2. Run the indexing script:
 
@@ -51,8 +52,19 @@ pip install -r requirements.txt
 python3 indexing.py
 ```
 
+
+### Retrieving Documents
+
+1. Add your documents to the `QA-Systems` directory.
+   
+2. Run the retrieval script:
+
+```bash
+python3 retrieval.py
+```
+
 ### Running the Frontend
-1. cd into the app directory within the qa_system directory
+1. cd into the app directory within the QA-Systems directory
 
 2. Start the Streamlit app:
 
@@ -64,7 +76,7 @@ streamlit run gui.py
 
 
 ### Running the Flask App
-1. cd into the app directory within the qa_system directory
+1. cd into the app directory within the QA-Systems directory
 2. export path
    ```bash
    export FLASK_APP=flask_app/__init__
@@ -89,14 +101,14 @@ To run the Question and Answers Assistant using Docker, follow these steps:
    docker build --no-cache -t flask_app .
    ```
 
-   This command will use the `Dockerfile` to build an image named `qa_system`.
+   This command will use the `Dockerfile` to build an image named `QA-Systems`.
 
 2. **Run the Docker Container**:
 
    Once the image is built, you can run a Docker container using the following command:
 
    ```
-   docker run -p 5000:5000 qa_system
+   docker run -p 5000:5000 QA-Systems
    ```
 3. **Access the Application**:
 
