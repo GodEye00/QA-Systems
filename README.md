@@ -13,6 +13,7 @@ The Question and Answers Assistant is a system designed to provide answers to us
   - [Indexing Documents](#indexing-documents)
   - [Running the Frontend](#running-the-frontend)
   - [Running the Flask app](#running-the-flask-app)
+  - [Running the Docker Container](#running-the-docker-container)
 
 ## Getting Started
 
@@ -66,7 +67,6 @@ streamlit run gui.py
 1. cd into the app directory within the qa_system directory
 2. export path FLASK_APP=flask_app/__init__
 3. start the flask app
-4. 
 ```bash
 flask run
 ```
