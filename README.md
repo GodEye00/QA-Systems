@@ -33,7 +33,7 @@ Before running the project, ensure you have the following dependencies installed
 1. Clone the repository from the master branch:
 
 ```bash
-git clone https://github.com/GodEye00/QA-Systems.git
+git clone -b master https://github.com/GodEye00/QA-Systems.git
 ```
 
 2. cd into the `QA-Systems` directory.
