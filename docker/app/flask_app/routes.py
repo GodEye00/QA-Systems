@@ -6,7 +6,7 @@ from sentence_transformers import SentenceTransformer
 import json
 from jsonschema import validate
 
-from app import app
+from flask_app import app
 
 # Added for logging
 logging.basicConfig(filename='app.log', level=logging.INFO)
