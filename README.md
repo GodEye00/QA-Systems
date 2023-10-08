@@ -33,7 +33,7 @@ Before running the project, ensure you have the following dependencies installed
 1. Clone the repository from the master branch:
 
 ```bash
-git clone -b master https://github.com/GodEye00/QA-Systems.git
+git clone https://github.com/GodEye00/QA-Systems.git
 ```
 
 2. cd into the `QA-Systems` directory.
@@ -46,9 +46,9 @@ pip install -r requirements.txt
 4. Run exports:
 
 ```bash
-export ELASTICSEARCH_HOST=<your-host-elasticsearch-url>
-export ELASTICSEARCH_API_KEY=<your-host-elasticsearch-api-key>
-export OPENAI_API_KEY=<your-openai-api-key>
+OPENAI_API_KEY=<your-openai-api-key>
+ELASTICSEARCH_HOST=https://2231c2d310594075954cdcba0566089b.us-central1.gcp.cloud.es.io:443
+ELASTICSEARCH_API_KEY=YkczVjI0b0I3eU96R3ZfYWFmUE86VGkzRzJiakhSXy1LSW5aWjd5Z0RKZw==
 ```
 
 ## Usage
@@ -129,23 +129,34 @@ To run the Question and Answers Assistant using Docker, follow these steps:
 cd QA-Systems/docker
 ```
 
-2. **Build the Docker Image**:
+2. **create an .env file with the following config**:
 
 ```bash
-docker build --no-cache -t flask_app .
+OPENAI_API_KEY=<your-openai-api-key>
+ELASTICSEARCH_HOST=https://2231c2d310594075954cdcba0566089b.us-central1.gcp.cloud.es.io:443
+ELASTICSEARCH_API_KEY=YkczVjI0b0I3eU96R3ZfYWFmUE86VGkzRzJiakhSXy1LSW5aWjd5Z0RKZw==
 ```
 
-3. **Run the Docker Container**:
+3. **Build the Docker Image**:
+
+```bash
+docker build --no-cache -t qa_system .
+```
+
+3. Make sure the .env file is in the same directory as where you run the docker image:
+
+4. **Run the Docker Container**:
 
 Once the image is built, you can run a Docker container using the following command:
 
 ```bash
-docker run -p 5000:5000 flask_app
+docker run --env-file .env -p 5000:5000 -p 8501:8501 qa_system
 ```
 
-4. **Access the Application**:
+5. **Access both the flask and streamlit Application**:
 
-You can access the application at `http://localhost:5000`.
+You can access the flask application at `http://localhost:5000`.
+You can access the streamlit UI application at `http://localhost:8501` or `http://<your-network-ip-address>:8501`.
 
 Please note that this Docker container assumes that the necessary Python packages and dependencies are listed in the `requirements.txt` file, and they will be installed during the build process.
 
