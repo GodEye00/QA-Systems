@@ -46,9 +46,9 @@ pip install -r requirements.txt
 4. Run exports:
 
 ```bash
-OPENAI_API_KEY=<your-openai-api-key>
-ELASTICSEARCH_HOST=https://2231c2d310594075954cdcba0566089b.us-central1.gcp.cloud.es.io:443
-ELASTICSEARCH_API_KEY=YkczVjI0b0I3eU96R3ZfYWFmUE86VGkzRzJiakhSXy1LSW5aWjd5Z0RKZw==
+export OPENAI_API_KEY=<your-openai-api-key>
+export ELASTICSEARCH_HOST=https://2231c2d310594075954cdcba0566089b.us-central1.gcp.cloud.es.io:443
+export ELASTICSEARCH_API_KEY=YkczVjI0b0I3eU96R3ZfYWFmUE86VGkzRzJiakhSXy1LSW5aWjd5Z0RKZw==
 ```
 
 ## Usage
