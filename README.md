@@ -142,7 +142,7 @@ ELASTICSEARCH_INDEX=<your-elastic-search-index-for-this-project>
 
 3. **Run the Docker Container**:
 
-Once the image is successfully pulled, run the image using the following command. Note:  Make sure the .env file you created in step 2 is in the same directory as where you run the docker image:
+Once the image is successfully pulled, run the image using the following command. **Note**:  Make sure the .env file you created in step 2 is in the same directory as where you run the docker image:
 
 ```bash
 docker run --env-file .env -p 5000:5000 -p 8501:8501 dawuda/qa_system:v1
