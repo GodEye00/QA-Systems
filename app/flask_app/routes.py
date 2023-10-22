@@ -13,7 +13,7 @@ logging.basicConfig(filename='app.log', level=logging.INFO)
 
 # Connecting to the ElasticSearch instance
 es = Elasticsearch(
-    app.config['ELASTICSEARCH_HOST'],
+    cloud_id=app.config['ELASTICSEARCH_CLOUD_ID'],
     api_key=app.config['ELASTICSEARCH_API_KEY'],
     request_timeout=30,
 )
@@ -38,7 +38,7 @@ def handleUserQuestion(question):
             }
         }
     }
-    response = es.search(index="search-qa_system_index", body=search_body, size=3)
+    response = es.search(index=app.config['ELASTICSEARCH_INDEX'], body=search_body, size=3)
 
     # Extract relevant passages and metadata
     relevant_passages = []

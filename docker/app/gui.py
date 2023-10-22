@@ -37,8 +37,8 @@ def main():
                 columns = line.split(',')
                 
                 # Accessing the 'passage' and 'metadata' items
-                passage_item = columns[0].strip()  # Assuming you want to remove leading/trailing spaces
-                metadata_item = columns[1].strip()  # Assuming you want to remove leading/trailing spaces
+                passage_item = columns[0].strip()
+                metadata_item = columns[1].strip()
                 
                 # Appending them to the respective lists
                 passage.append(passage_item)
@@ -50,10 +50,9 @@ def main():
 
         if st.button("Send"):
             try:
-                st.write("Sending...")
-                handleUploadDocument(passage, metadata)
-                with st.empty():
-                    st.write("Uploading Document was successful")
+                with st.spinner('Sending...'):
+                    handleUploadDocument(passage, metadata)
+                st.write("Uploading Document was successful")
             except Exception as e:
                 st.write("Error uploading file")
 
@@ -62,17 +61,15 @@ def main():
 
     # Button to trigger question answering
     if st.button("Ask Question"):
-        spinner = st.empty()
-        st.write("Loaing...")
-        results = handleUserQuestion(user_question)
-        spinner.empty()
+        with st.spinner('Loading...'):
+            results = handleUserQuestion(user_question)
         st.header("Relevant Passages:")
         for index, item in enumerate(results):
             st.subheader(f"Passage {index+1}")
             st.write(item['passage'])
             st.write("Relevance Score: " + str(item['relevance_score']))       
 
-        # Optionally, display generative AI answer
+        # Displaying generative AI answer
         st.header("Generative AI Answer:")
         ai_response = generate_direct_answer(user_question)
         st.write(ai_response)

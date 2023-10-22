@@ -1,0 +1,54 @@
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-mpnet-base-v2
+INFO:sentence_transformers.SentenceTransformer:Use pytorch device: cpu
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Received question: can I collect my own stolen car if I see it on the road?
+INFO:elastic_transport.transport:POST https://6f9074df0a5b498bab1cd28b8be8d3d9.us-central1.gcp.cloud.es.io:443/search-qa_system_index/_search [status:404 duration:1.045s]
+ERROR:root:Error in ask_question: NotFoundError(404, 'index_not_found_exception', 'no such index [search-qa_system_index]', search-qa_system_index, index_or_alias)
+INFO:werkzeug:127.0.0.1 - - [21/Oct/2023 07:53:00] "[35m[1mPOST /ask_question HTTP/1.1[0m" 500 -
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-mpnet-base-v2
+INFO:sentence_transformers.SentenceTransformer:Use pytorch device: cpu
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Received question: can I collect my own stolen car if I see it on the road?
+INFO:elastic_transport.transport:POST https://6f9074df0a5b498bab1cd28b8be8d3d9.us-central1.gcp.cloud.es.io:443/search-qa_system_index/_search [status:404 duration:1.037s]
+ERROR:root:Error in ask_question: NotFoundError(404, 'index_not_found_exception', 'no such index [search-qa_system_index]', search-qa_system_index, index_or_alias)
+INFO:werkzeug:127.0.0.1 - - [21/Oct/2023 08:05:41] "[35m[1mPOST /ask_question HTTP/1.1[0m" 500 -
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-mpnet-base-v2
+INFO:sentence_transformers.SentenceTransformer:Use pytorch device: cpu
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Received question: can I collect my own stolen car if I see it on the road?
+INFO:elastic_transport.transport:POST https://6f9074df0a5b498bab1cd28b8be8d3d9.us-central1.gcp.cloud.es.io:443/search-qa_system_index/_search [status:404 duration:0.966s]
+ERROR:root:Error in ask_question: NotFoundError(404, 'index_not_found_exception', 'no such index [search-qa_system_index]', search-qa_system_index, index_or_alias)
+INFO:werkzeug:127.0.0.1 - - [21/Oct/2023 08:14:29] "[35m[1mPOST /ask_question HTTP/1.1[0m" 500 -
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-mpnet-base-v2
+INFO:sentence_transformers.SentenceTransformer:Use pytorch device: cpu
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Received question: can I collect my own stolen car if I see it on the road?
+INFO:elastic_transport.transport:POST https://6f9074df0a5b498bab1cd28b8be8d3d9.us-central1.gcp.cloud.es.io:443/search-qa_system_index/_search [status:404 duration:0.938s]
+ERROR:root:Error in ask_question: NotFoundError(404, 'index_not_found_exception', 'no such index [search-qa_system_index]', search-qa_system_index, index_or_alias)
+INFO:werkzeug:127.0.0.1 - - [21/Oct/2023 08:39:35] "[35m[1mPOST /ask_question HTTP/1.1[0m" 500 -
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-mpnet-base-v2
+INFO:sentence_transformers.SentenceTransformer:Use pytorch device: cpu
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Received question: can I collect my own stolen car if I see it on the road?
+INFO:elastic_transport.transport:POST https://6f9074df0a5b498bab1cd28b8be8d3d9.us-central1.gcp.cloud.es.io:443/search-kwameai/_search [status:200 duration:2.169s]
+INFO:werkzeug:127.0.0.1 - - [21/Oct/2023 08:41:59] "POST /ask_question HTTP/1.1" 200 -
+INFO:root:Received document: {'passage': 'In the landmark case of Smith v. Jones, the Supreme Court set a precedent that clarified the scope of personal liability in contract disputes. The plaintiff, Mr. Smith, argued that the defendant, Mr. Jones, had breached the terms of their agreement by failing to deliver the goods on the agreed-upon date. The court meticulously examined the contractual language and the circumstances surrounding the transaction. It ultimately ruled in favor of Mr. Smith, holding that Mr. Jones was indeed in breach of contract. This decision not only upheld the sanctity of contracts but also emphasized the importance of honoring agreed-upon terms. Furthermore, the Smith v. Jones case underscored the significance of clear and unambiguous language in contracts. It set a standard for parties entering into agreements, emphasizing the need for precise terms to avoid potential disputes. This precedent has since been cited in numerous cases, shaping the legal landscape for contract law. It serves as a reminder to both individuals and businesses alike to approach contractual relationships with diligence and transparency.', 'metadata': {'title': 'Joseph Donkor v. The Republic', 'author': 'R.C. OWUSU, JA', 'date': '2001-11-15', 'source': 'Regional Tribunal Cape Coast', 'sourceFile': '\\original_source_files\\Cases from 1993 - 2014\\2001\\REGIONAL TRIBUNAL\\Joseph Donkor v. The Republic.htm', 'keywords': ['careless driving', 'negligence', 'road traffic', 'accident'], 'jurisdiction': 'Ghana', 'court': {'name': 'Regional Tribunal', 'location': {'city': 'Cape Coast', 'country': 'Ghana'}}, 'counsel': {'Plaintiff/Appellant': ['JOHN MERCER'], 'Defendant/Respondent': ['AGBOLOSOO']}, 'judges': ['R.C. OWUSU (MS)', 'WOOD, JA', 'GBADEGBE, JA'], 'precedentCitations': [], 'annotations': 'The appellant contested charges of careless driving and negligently causing harm...', 'language': 'English', 'fileFormat': 'HTML', 'wordCount': 628}}
+INFO:elastic_transport.transport:POST https://6f9074df0a5b498bab1cd28b8be8d3d9.us-central1.gcp.cloud.es.io:443/search-qa_system_index/_doc [status:201 duration:1.252s]
+INFO:werkzeug:127.0.0.1 - - [21/Oct/2023 08:42:13] "POST /upload_document HTTP/1.1" 200 -
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-mpnet-base-v2
+INFO:sentence_transformers.SentenceTransformer:Use pytorch device: cpu
+INFO:elastic_transport.transport:POST https://6f9074df0a5b498bab1cd28b8be8d3d9.us-central1.gcp.cloud.es.io:443/search-kwameai/_search [status:200 duration:1.746s]
+INFO:elastic_transport.transport:POST https://6f9074df0a5b498bab1cd28b8be8d3d9.us-central1.gcp.cloud.es.io:443/search-kwameai/_search [status:200 duration:0.869s]
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-mpnet-base-v2
+INFO:sentence_transformers.SentenceTransformer:Use pytorch device: cpu
+INFO:elastic_transport.transport:POST https://6f9074df0a5b498bab1cd28b8be8d3d9.us-central1.gcp.cloud.es.io:443/search-kwameai/_search [status:200 duration:1.787s]

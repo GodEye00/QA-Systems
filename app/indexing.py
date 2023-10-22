@@ -6,9 +6,9 @@ import os
 
 # Connecting to elasticsearch
 es = Elasticsearch(
-  os.environ.get('ELASTICSEARCH_HOST'),
-  os.environ.get('ELASTICSEARCH_API_KEY'),
-  request_timeout=30,
+    cloud_id=os.environ.get('ELASTICSEARCH_CLOUD_ID'),
+    api_key=os.environ.get('ELASTICSEARCH_API_KEY'),
+    request_timeout=30,
 )
 
 # Defining the index for the mapping
@@ -28,7 +28,7 @@ mapping = {
 }
 
 # creating the index for the search
-es_index = "search-qa_system_index"
+es_index = os.environ.get('ELASTICSEARCH_INDEX')
 es.indices.delete(index=es_index)
 es.indices.create(index=es_index, body=mapping)
 
