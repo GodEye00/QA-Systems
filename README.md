@@ -46,10 +46,10 @@ pip install -r requirements.txt
 4. Run exports:
 
 ```bash
-OPENAI_API_KEY=<your-openai-api-key>
-ELASTICSEARCH_CLOUD_ID=<your-elastic-search-cloud-id>
-ELASTICSEARCH_API_KEY=<your-elastic-search-api-key>
-ELASTICSEARCH_INDEX=<your-elastic-search-index-for-this-project>
+export OPENAI_API_KEY=<your-openai-api-key>
+export ELASTICSEARCH_CLOUD_ID=<your-elastic-search-cloud-id>
+export ELASTICSEARCH_API_KEY=<your-elastic-search-api-key>
+export ELASTICSEARCH_INDEX=<your-elastic-search-index-for-this-project>
 ```
 
 ## Usage
