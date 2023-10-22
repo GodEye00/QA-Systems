@@ -33,7 +33,7 @@ Before running the project, ensure you have the following dependencies installed
 1. Clone the repository from the master branch:
 
 ```bash
-git clone -b master https://github.com/GodEye00/QA-Systems.git
+git clone https://github.com/GodEye00/QA-Systems.git
 ```
 
 2. cd into the `QA-Systems` directory.
@@ -46,9 +46,10 @@ pip install -r requirements.txt
 4. Run exports:
 
 ```bash
-export OPENAI_API_KEY=<your-openai-api-key>
-export ELASTICSEARCH_HOST=https://2231c2d310594075954cdcba0566089b.us-central1.gcp.cloud.es.io:443
-export ELASTICSEARCH_API_KEY=YkczVjI0b0I3eU96R3ZfYWFmUE86VGkzRzJiakhSXy1LSW5aWjd5Z0RKZw==
+OPENAI_API_KEY=<your-openai-api-key>
+ELASTICSEARCH_CLOUD_ID=<your-elastic-search-cloud-id>
+ELASTICSEARCH_API_KEY=<your-elastic-search-api-key>
+ELASTICSEARCH_INDEX=<your-elastic-search-index-for-this-project>
 ```
 
 ## Usage
@@ -123,40 +124,34 @@ flask run
 
 To run the Question and Answers Assistant using Docker, follow these steps:
 
-1. **Enter the docker directory**:
+
+1. **Pull the docker image**:
 
 ```bash
-cd QA-Systems/docker
+docker pull dawuda/qa_system:v1
 ```
 
 2. **create an .env file with the following config**:
 
 ```bash
 OPENAI_API_KEY=<your-openai-api-key>
-ELASTICSEARCH_HOST=https://2231c2d310594075954cdcba0566089b.us-central1.gcp.cloud.es.io:443
-ELASTICSEARCH_API_KEY=YkczVjI0b0I3eU96R3ZfYWFmUE86VGkzRzJiakhSXy1LSW5aWjd5Z0RKZw==
+ELASTICSEARCH_CLOUD_ID=<your-elastic-search-cloud-id>
+ELASTICSEARCH_API_KEY=<your-elastic-search-api-key>
+ELASTICSEARCH_INDEX=<your-elastic-search-index-for-this-project>
 ```
 
-3. **Build the Docker Image**:
+3. **Run the Docker Container**:
+
+Once the image is successfully pulled, run the image using the following command. **Note**:  Make sure the .env file you created in step 2 is in the same directory as where you run the docker image:
 
 ```bash
-docker build --no-cache -t qa_system .
+docker run --env-file .env -p 5000:5000 -p 8501:8501 dawuda/qa_system:v1
 ```
 
-3. Make sure the .env file is in the same directory as where you run the docker image:
+4. **Access both the flask and streamlit Application after the run completes**:
 
-4. **Run the Docker Container**:
-
-Once the image is built, you can run a Docker container using the following command:
-
-```bash
-docker run --env-file .env -p 5000:5000 -p 8501:8501 qa_system
-```
-
-5. **Access both the flask and streamlit Application**:
-
-You can access the flask application at `http://localhost:5000`.
-You can access the streamlit UI application at `http://localhost:8501` or `http://<your-network-ip-address>:8501`.
+Waiting for the application to finish downloading and you can access the flask application at `http://localhost:5000`
+and the streamlit UI application at `http://localhost:8501` or `http://<your-network-ip-address>:8501`.
 
 Please note that this Docker container assumes that the necessary Python packages and dependencies are listed in the `requirements.txt` file, and they will be installed during the build process.
 
